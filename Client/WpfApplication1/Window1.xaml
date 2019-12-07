@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApplication1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="" Height="336.449" Width="531.776" WindowStyle="ToolWindow" Foreground="{x:Null}" Background="{x:Null}" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid Background="#FF97FF97">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="384,270,0,0" TextWrapping="Wrap" Text="Power by Visual Studio" VerticalAlignment="Top" Width="130" BorderBrush="{x:Null}" Opacity="0" Background="{x:Null}"/>
+        <Image x:Name="Visual_Studio_2013_Logo_svg_png" Margin="141,10,145,27" Source="Visual_Studio_2013_Logo.svg.png" Stretch="Fill" Opacity="0"/>
+        <Image x:Name="sql_logo_png" Margin="78,10,81,27" Source="sql-logo.png" Stretch="Fill" Opacity="0"/>
+        <Image x:Name="Image1_png" Margin="20,25,24,41" Source="chat_logo.png" Stretch="Fill" Opacity="0" Width="480" Height="240"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="25" Margin="311,270,0,0" TextWrapping="Wrap" Text="creator of the program Martens Vlad" VerticalAlignment="Top" Width="203" BorderBrush="{x:Null}" Opacity="0" Background="{x:Null}"/>
+        
+
+    </Grid>
+</Window>

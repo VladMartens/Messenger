@@ -1,0 +1,171 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="" Height="680" Width="950" WindowStartupLocation="CenterScreen" MinWidth="950" MinHeight="680" MaxWidth="950" MaxHeight="680">
+    <Grid Background="{x:Null}" OpacityMask="Black" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="589*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="136"/>
+            <RowDefinition Height="54"/>
+            <RowDefinition Height="54"/>
+            <RowDefinition Height="54"/>
+            <RowDefinition Height="145"/>
+            <RowDefinition Height="7"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" Height="649" Margin="-1,1,0,-194" VerticalAlignment="Top" Width="110" Grid.RowSpan="6" Background="#FF4276A4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="135*"/>
+                <RowDefinition Height="54*"/>
+                <RowDefinition Height="54*"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="144*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="button" Content="About" HorizontalAlignment="Left" Margin="10,163,0,0" Grid.Row="4" VerticalAlignment="Top" Width="90" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="button_Click" Height="29"/>
+        </Grid>
+        <Button x:Name="button1" Content="Сообщения" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="109" Height="54" Click="button1_Click" Background="#FF4276A4" Foreground="White" Margin="-1,0,0,0" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}"/>
+        <Button x:Name="button2" Content="Друзья" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="109" Height="54" Background="#FF4276A4"  Click="button2_Click" Foreground="White" Margin="-1,0,0,0" BorderBrush="{x:Null}"/>
+        <Button x:Name="button3" Content="Поиск друзей" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="109" Height="54" Background="#FF4276A4"  Click="button3_Click" Foreground="White" Margin="-1,0,0,0" BorderBrush="{x:Null}"/>
+        <Grid HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="942" Background="#FF3565BB" Grid.ColumnSpan="2">
+            <Label Content="Label" HorizontalAlignment="Left" Margin="814,30,0,0" VerticalAlignment="Top" Height="31" Width="116" Name="lable1" Foreground="White"/>
+            <Image Margin="-5,4,767,-13" Source="chat_logo.png" Stretch="Fill" Height="90" Width="180" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-6.223"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <ComboBox HorizontalAlignment="Left" Margin="216,35,0,0" VerticalAlignment="Top" Width="176" SelectedIndex="0" Name="ComboSerch" Visibility="Hidden">
+                <ComboBoxItem>ID</ComboBoxItem>
+                <ComboBoxItem>Имя</ComboBoxItem>
+                <ComboBoxItem>Фамилия</ComboBoxItem>
+                <ComboBoxItem>Имя и Фамилия</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Выбор критерия поиска:" HorizontalAlignment="Left" Margin="216,9,0,0" VerticalAlignment="Top" Name="SettingFind" Foreground="White" FontSize="15" Visibility="Hidden"/>
+            <Label Content="Параметры поиска:" HorizontalAlignment="Left" Margin="434,10,0,0" VerticalAlignment="Top" Name="TextFind" Foreground="White" FontSize="15" Visibility="Hidden"/>
+            <TextBox Name ="TextSerch" HorizontalAlignment="Left" Height="26" Margin="434,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="15" Foreground="Black" Visibility="Hidden" KeyDown="TextSerch_KeyDown"  />
+            <Label Name="MyId" Content="Label" HorizontalAlignment="Left" Margin="707,39,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
+            <Button Name="buttonsearch" HorizontalAlignment="Left" Margin="634,35,0,0" VerticalAlignment="Top" Width="30" Height="30" Background="#FF3F62FD" BorderBrush="{x:Null}" Visibility="Hidden" Click="buttonsearch_Click" >
+                <Image Height="25" Source="w512h5121380477032search.png" Stretch="Fill" Width="25"/>
+            </Button>
+        </Grid>
+        <TabControl HorizontalAlignment="Left" Height="569" Margin="108,81,0,-194" Grid.RowSpan="6" VerticalAlignment="Top" Width="832" Grid.ColumnSpan="2" Name="TabController">
+            <TabItem Header="Message" Opacity="0" Name="Message" Margin="-2,23,52,-3">
+                <ListView Name="Messagelist" Margin="-3,-26,-4,-16" Background="White" >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn  Header="Id" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                                <GridViewColumn  DisplayMemberBinding="{Binding Name}" Width="600"/>
+
+
+                                <GridViewColumn Width="184"  >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="DownloadBtn"
+                                            Click="MessageOpen"
+                                            Content="Сообщения" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.Resources>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                                    <Setter Property="IsSelected" Value="True" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.Resources>
+                </ListView>
+            </TabItem>
+
+            <TabItem Header="Friends" Opacity="0" Name="Friends" Margin="-2,24,29,-4">
+                <ListView Name="lvOrders" Margin="-3,-26,-4,-4" >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn  Header="Id" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                                <GridViewColumn  DisplayMemberBinding="{Binding Name}" Width="600"/>
+
+
+                                <GridViewColumn Width="184"  >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="DownloadBtn"
+                                            Click="message_add"
+                                            Content="Написать сообщение" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.Resources>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                                    <Setter Property="IsSelected" Value="True" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.Resources>
+                </ListView>
+
+            </TabItem>
+
+            <TabItem Header="FindFriends" Opacity="0" Name="Setting" Margin="-2,20,50,0">
+                <ListView Name="lvFindFriend" Margin="-3,-26,-4,-4" >
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn  Header="Id" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                                <GridViewColumn  DisplayMemberBinding="{Binding Name}" Width="600"/>
+
+
+                                <GridViewColumn Width="184"  >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Name="DownloadBtn"
+                                            Click="button_Click_add"
+                                            Content="Добавить в друзья" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.Resources>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                                    <Setter Property="IsSelected" Value="True" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.Resources>
+                </ListView>
+            </TabItem>
+
+
+
+
+        </TabControl>
+
+
+
+    </Grid>
+</Window>

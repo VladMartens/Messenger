@@ -1,0 +1,7 @@
+C:\Users\marte\Desktop\Курсовая\Server\Server\bin\Release\Server.exe.config
+C:\Users\marte\Desktop\Курсовая\Server\Server\bin\Release\Server.exe
+C:\Users\marte\Desktop\Курсовая\Server\Server\bin\Release\Server.pdb
+C:\Users\marte\Desktop\Курсовая\Server\Server\obj\Release\Server.csprojResolveAssemblyReference.cache
+C:\Users\marte\Desktop\Курсовая\Server\Server\obj\Release\Server.csproj.CoreCompileInputs.cache
+C:\Users\marte\Desktop\Курсовая\Server\Server\obj\Release\Server.exe
+C:\Users\marte\Desktop\Курсовая\Server\Server\obj\Release\Server.pdb
